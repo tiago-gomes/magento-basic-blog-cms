@@ -1,0 +1,6 @@
+.modgit/
+.git
+.project
+.buildpath
+.settings
+*.*~
