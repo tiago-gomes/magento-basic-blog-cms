@@ -1,8 +1,10 @@
 <?php
 $collection = $this->_getCollection(); 
 $collection->getSelect("*")->order("inkatia_blog_id DESC")->limit("5");
+$size = $collection->getSize();
 $data		= $collection->getData();
 ?>
+<?php if($size>0): ?>
 <div class="inkatia-sidebar">
 	<div class="block block-list block-compare">
 	    <div class="block-title">
@@ -19,3 +21,4 @@ $data		= $collection->getData();
 	     </div>
 	</div>
 </div>
+<?php endif; ?>

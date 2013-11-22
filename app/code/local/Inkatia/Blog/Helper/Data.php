@@ -1,7 +1,7 @@
 <?php
 
 class Inkatia_Blog_Helper_Data extends Mage_Core_Helper_Abstract{
-	
+
 	public function _parceTinyMceText($text, $postId){
 		$string = strip_tags($text);
 		if (strlen($string) > 250) {

@@ -1,6 +1,32 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
   
+    <blog_post_all>
+    
+    	<!-- Remove Blocks -->
+		<remove name="page_content_heading" />
+		<remove name="cart_sidebar" />
+		<remove name="catalog.compare.sidebar" />
+		<remove name="right.permanent.callout" />
+		<remove name="right.poll" />
+		
+		<reference name="head">
+        	<action method="addCss">
+				<stylesheet>css/inkatia/blog/style.css</stylesheet>
+				<position>50</position>
+			</action> 
+        </reference>
+        
+		<reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+            <action method="setHeaderTitle" translate="title" module="blog"><title>Blog</title></action>
+        </reference>
+        
+		<reference name="content">
+			<block type="blog/pagination" name="inkatia_allposts" as="inkatia_allposts" template="inkatia_blog/all_posts.phtml" />
+		</reference>
+		
+    </blog_post_all>
     <blog_post_index>
     
     	<!-- Remove Blocks -->
@@ -23,7 +49,7 @@
         </reference>
         
 		<reference name="content">
-			<block type="blog/blog" name="inkatia_latestposts" as="inkatia_latestposts" template="inkatia_blog/latests_posts.phtml" />
+			<block type="blog/blog" name="inkatia_post" as="inkatia_post" template="inkatia_blog/post.phtml" />
 		</reference>
 		
     </blog_post_index>
@@ -36,7 +62,7 @@
 			</action> 
         </reference>
 		<reference name="right">
-			<block type="blog/blog" name="inkatia_latest_sidebar_posts" as="inkatia_latest_sidebar_posts" before="-"  template="inkatia_blog/latests_sidebar_posts.phtml" />
+			<block type="blog/blog" name="inkatia_latest_sidebar_posts" as="inkatia_latest_sidebar_posts" before="-"  template="inkatia_blog/posts_sidebar.phtml" />
 		</reference>
 	</default>
 </layout>

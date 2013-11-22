@@ -60,17 +60,23 @@ class Inkatia_Blog_Adminhtml_BlogController extends Mage_Adminhtml_Controller_Ac
     		
 		  try {
 		  	
+		  	$helper = Mage::Helper('blog/adminhelper');
+		  	
 		    $uploader = new Varien_File_Uploader('featured_image');
 		    $uploader->setAllowedExtensions(array('jpg','jpeg','gif','png')); // or pdf or anything
 		 
 		    $uploader->setAllowRenameFiles(false);
-		 
-		    // setAllowRenameFiles(true) -> move your file in a folder the magento way
-		    // setAllowRenameFiles(true) -> move your file directly in the $path folder
 		    $uploader->setFilesDispersion(false);
-		   
-		    $path 	 = Mage::getBaseDir('media') . DS . 'inkatia' . DS . 'blog' . DS . 'featured_images' . DS ;
-       
+		    
+		    // directory path
+		    $path 	 = $helper->_getUploadDir();
+       		
+       		// change filename
+    		$_FILES['featured_image']['name'] = $helper->_changeFileName($_FILES['featured_image']['name']);
+
+    		// check image size
+    		list( $width, $height ) = $helper->_getImageSize($_FILES['featured_image']);
+
 		    $uploader->save($path, $_FILES['featured_image']['name']);
 		 
 		    $data['featured_image'] = 'inkatia' . DS . 'blog' . DS . 'featured_images' . DS . $_FILES['featured_image']['name'];
