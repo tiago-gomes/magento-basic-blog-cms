@@ -75,7 +75,7 @@ class Inkatia_Blog_Adminhtml_BlogController extends Mage_Adminhtml_Controller_Ac
     		$_FILES['featured_image']['name'] = $helper->_changeFileName($_FILES['featured_image']['name']);
 
     		// check image size
-    		list( $width, $height ) = $helper->_getImageSize($_FILES['featured_image']);
+    		// list( $width, $height ) = $helper->_getImageSize($_FILES['featured_image']);
 
 		    $uploader->save($path, $_FILES['featured_image']['name']);
 		 
