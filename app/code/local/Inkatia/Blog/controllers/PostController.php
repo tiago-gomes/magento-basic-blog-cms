@@ -20,13 +20,13 @@ class Inkatia_Blog_PostController extends Mage_Core_Controller_Front_Action{
 				$this->getResponse()->setHeader('HTTP/1.1','404 Not Found');
 			    $this->getResponse()->setHeader('Status','404 File not found');
 			
-			    $this->_redirect('blog/index');
+			    $this->_redirect('blog/');
 			}
 			
 		}else{
 			$this->getResponse()->setHeader('HTTP/1.1','404 Not Found');
 			$this->getResponse()->setHeader('Status','404 File not found');
-			$this->_redirect('blog/index');
+			$this->_redirect('blog/');
 		}
 
 	}
