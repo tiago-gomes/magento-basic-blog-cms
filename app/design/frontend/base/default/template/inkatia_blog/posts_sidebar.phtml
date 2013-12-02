@@ -14,7 +14,7 @@ $data		= $collection->getData();
            <?php foreach($data as $item ): ?>
 				<?php if($item['status']==1): ?>
 				<div class="inkatia-sidebar-item">
-					<a href="<?php echo Mage::getBaseUrl().'/blog/post/?id='.$item['inkatia_blog_id']; ?>"><?php echo $item['title']; ?></a>
+					<a title="<?php echo $item['title']; ?>" alt="<?php echo $item['title']; ?>" href="<?php echo Mage::getBaseUrl().'blog/post/?id='.$item['inkatia_blog_id']; ?>"><?php echo $item['title']; ?></a>
 				</div>
 				<?php endif; ?>
 			<?php endforeach; ?>
